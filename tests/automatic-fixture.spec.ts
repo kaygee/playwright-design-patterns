@@ -12,7 +12,7 @@ const test = base.extend({
         await page.goto('https://test.rev.com/app');
         const emailInput = page.locator("input#email-input");
         await expect(emailInput).toBeVisible();
-        await page.fill("input#email-input", testData.email);
+        await emailInput.fill(testData.email);
 
         const nextButton = page.locator("//button[text()='Next']");
         await expect(nextButton).toBeVisible();
@@ -31,7 +31,7 @@ test("Should do the stuff in the fixture before this", async ({ page }) => {
 
     const passwordInput = page.locator("input#password-input");
     await expect(passwordInput).toBeVisible();
-    await page.fill("input#password-input", "password");
+    await passwordInput.fill("password");
 
     const signInButton = page.locator("//button[text()='Sign in']");
     await expect(signInButton).toBeVisible();
